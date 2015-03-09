@@ -125,7 +125,8 @@ function showOutput(xmlRequest){
 }
 
 //------------------------------------- Global
-uri    = "http://localhost:8080/Restest/Service/Temperature";
+jarName = "PM2-Q2";
+uri    = "http://localhost:8080/"+jarName+"/Service/Temperature";
 var outputFrame = document.getElementById("output");
 var writer      = getWriterInstance();
 var rq;
