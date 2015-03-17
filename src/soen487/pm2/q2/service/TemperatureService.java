@@ -20,15 +20,26 @@ import javax.ws.rs.core.MediaType;
 @Path("/Temperature")
 public class TemperatureService {
 
+	/*
+	 * Entreprise Java Bean - Singleton
+	 */
 	@EJB
 	private TemperatureBean temp;
 	
+	/**
+	 * Get the service temperature
+	 * @return the string representation of the temperature in degrees
+	 */
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getTemperature(){
 		return temp.getTemperature().toString()+" degrees";
 	}
 	
+	/**
+	 * Get the service temperature
+	 * @return the string representation of the temperature in degrees
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	public String getXML(){
@@ -40,6 +51,10 @@ public class TemperatureService {
 		return sb.toString();
 	}
 	
+	/**
+	 * Update the service temperature
+	 * @param t the new temperature to set
+	 */
 	@PUT
 	public void putXML(@FormParam("temp") int t){
 		temp.setTemperature(t);
